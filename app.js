@@ -12,8 +12,31 @@ const expressRoute=require('express-route');
 const consolidate = require('consolidate');
 
 
+var MongoClient = require('mongodb').MongoClient
+    , assert = require('assert');
+// Connection URL
+var url = 'mongodb://localhost:27017/runoob';
+
+
+var insertDocuments = function(db, callback) {
+    var collection = db.collection('documents');
+    collection.find([
+        {a : 1}, {a : 2}, {a : 3}
+    ], function(err, result) {
+        console.log('>>>>>>>>>>>>>')
+        console.log(result.)
+    });
+}
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    insertDocuments(db, function() {
+        db.close();
+    });
+});
+
+
 // 监听端口
-server.listen(80,function () {
+server.listen(89,function () {
     console.log('服务器已经启动》》》》》》》》》》》》》》》》')
 });  // 监听端口号
 
